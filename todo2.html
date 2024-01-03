@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TODO List</h1>
+    <input id="input" type="text"><button id="add">Add</button>
+    <ul id="list"></ul>
+
+  
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script>
+  if(window.localStorage !== undefined){
+  var storeData = { };
+  var input = $("#input").val();
+  $("#add").click(function (){
+    localStorage.setItem("storeData", JSON.stringify(input));
+  });
+  };
+  
+  $(document).ready(function(){
+    var data = JSON.parse(localStorage.getItem("storeData"));
+    $("#list").html(data);
+  });
+  </script> 
+</body>
+</html>
